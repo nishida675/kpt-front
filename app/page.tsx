@@ -23,21 +23,21 @@ export default function Home() {
   });
 
   useEffect(() => {
-      const title = searchParams.get("title");
-      const message = searchParams.get("message");
-      const color = searchParams.get("color") === "true";
-      const open = searchParams.get("open") === "true";
-  
-      if (open && title && message) {
-        setTitleMessage({ title, message, color });
-        setModalOpen(true);
-  
-        // クエリをURLから削除（1回しか呼ばれない）
-        const url = new URL(window.location.href);
-        url.search = "";
-        window.history.replaceState({}, "", url.toString());
-      }
-    }, [searchParams]);
+    const title = searchParams.get("title");
+    const message = searchParams.get("message");
+    const color = searchParams.get("color") === "true";
+    const open = searchParams.get("open") === "true";
+
+    if (open && title && message) {
+      setTitleMessage({ title, message, color });
+      setModalOpen(true);
+
+      // クエリをURLから削除（1回しか呼ばれない）
+      const url = new URL(window.location.href);
+      url.search = "";
+      window.history.replaceState({}, "", url.toString());
+    }
+  }, [searchParams]);
 
   const handleClose = () => setModalOpen(false);
 
@@ -143,9 +143,6 @@ export default function Home() {
               placeholder="Password"
             />
           </div>
-
-          {/* {error && <p className="text-red-500 text-sm mb-2">{error}</p>} */}
-
           <button
             onClick={handleLogin}
             className="w-full rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { ProjectDetail } from "@/app/components/type/ticket";
-import { sampleProjectData } from "../page";
+import { sampleProjectData } from "../lib/sampleProjectData";
 
 export function useProjectData() {
   const searchParams = useSearchParams();

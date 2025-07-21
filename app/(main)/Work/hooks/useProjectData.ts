@@ -1,3 +1,6 @@
+"use client";
+
+
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { ProjectDetail } from "@/app/components/type/ticket";

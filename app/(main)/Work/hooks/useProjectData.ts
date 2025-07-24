@@ -17,6 +17,7 @@ export function useProjectData() {
   useEffect(() => {
     const id = searchParams.get("id");
     const titleParam = searchParams.get("title");
+    if (id === null && titleParam === null) return;
 
     setTitleId(id);
 

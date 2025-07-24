@@ -42,7 +42,8 @@ export default function HomeClient() {
   const handleClose = () => setModalOpen(false);
 
   // ログインボタンがクリックされたときのハンドラー
-  const handleLogin = async () => {
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
     if (!displayName || !password) {
       setTitleMessage({
         title: "エラー",
@@ -118,7 +119,7 @@ export default function HomeClient() {
           </p>
         </section>
         {/* ログインフォーム */}
-        <section className="mt-10 w-full max-w-sm">
+        <form onSubmit={handleLogin} className="mt-10 w-full max-w-sm">
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700">
               名前
@@ -144,12 +145,12 @@ export default function HomeClient() {
             />
           </div>
           <button
-            onClick={handleLogin}
+            type="submit"
             className="w-full rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
           >
             ログイン
           </button>
-        </section>
+        </form>
         <section className="mt-6 text-center">
           <p className="text-sm text-gray-500">
             アカウントをお持ちでない方は、{" "}

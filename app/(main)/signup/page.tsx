@@ -84,37 +84,47 @@ export default function SignUp() {
         </h4>
 
         <section className="mt-10 w-full max-w-sm">
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">
-              名前
-            </label>
-            <input
-              type="text"
-              value={displayName}
-              onChange={(e) => setDisplayName(e.target.value)}
-              className="mt-1 w-full rounded border px-3 py-2"
-              placeholder="Display Name"
-            />
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">
-              パスワード
-            </label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="mt-1 w-full rounded border px-3 py-2"
-              placeholder="Password"
-            />
-          </div>
-          <button
-            onClick={handleSignUp}
-            className="w-full rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleSignUp();
+            }}
           >
-            アカウント作成
-          </button>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700">
+                名前
+              </label>
+              <input
+                type="text"
+                value={displayName}
+                onChange={(e) => setDisplayName(e.target.value)}
+                className="mt-1 w-full rounded border px-3 py-2"
+                placeholder="Display Name"
+                name="displayName"
+              />
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700">
+                パスワード
+              </label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="mt-1 w-full rounded border px-3 py-2"
+                placeholder="Password"
+                name="password"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-full rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            >
+              アカウント作成
+            </button>
+          </form>
         </section>
 
         <section className="mt-6 text-center">
